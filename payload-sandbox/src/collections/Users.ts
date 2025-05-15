@@ -54,6 +54,12 @@ export const Users: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
     },
+    {
+      name: 'associatedJobs',
+      type: 'join',
+      collection: 'jobs',
+      on: 'Job is for',
+    },
     // {
     //   name: 'jobs',
     //   // Save this field to JWT so we can use from `req.user`

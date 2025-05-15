@@ -8,15 +8,19 @@ import { fileURLToPath } from 'url'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import sharp from 'sharp'
 
+import { Galleries } from './collections/Galleries'
 import { Interactions } from './collections/Interactions'
 import { Jobs } from './collections/Jobs'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
+import { Teams } from './collections/Teams'
 
 import ProfilePicture from './adminComponents/ProfilePicture'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+console.log(ProfilePicture)
 
 export default buildConfig({
   admin: {
@@ -24,14 +28,14 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    // avatar: ProfilePicture,
+    avatar: 'default',
     // components: {
     //   graphics: {
     //     DefaultBlockImage: './adminComponents/ProfilePicture#ProfilePicture'
     //   }
     // }
   },
-  collections: [Users, Interactions, Jobs, Media],
+  collections: [Users, Interactions, Jobs, Media, Teams, Galleries],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

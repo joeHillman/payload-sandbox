@@ -68,6 +68,17 @@ export const Interactions: CollectionConfig = {
       name: 'Is for',
       type: 'relationship',
       relationTo: 'media',
+      filterOptions: ({relationTo, siblingData}) => {
+        console.log(siblingData)
+        return true
+      },
+      // admin: {
+      //   condition: ({relationTo}, data, siblingData) => {
+      //     console.log(siblingData)
+      //     return true
+      //     // if(siblingData.data.options.value === 'before' || siblingData.data.options.value === 'working' || siblingData.data.options.value === 'after') { return true }
+      //   },
+      // },
     }
   ],
 }

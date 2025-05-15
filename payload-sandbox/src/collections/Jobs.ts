@@ -114,12 +114,11 @@ export const Jobs: CollectionConfig = {
         },
       },
     },
-    // {
-    //   name: 'associatedClients',
-    //   type: 'join',
-    //   collection: 'users',
-    //   on: 'firstName',
-    // },
+    {
+      name: 'Job is for',
+      type: 'relationship',
+      relationTo: 'users',
+    },
     {
       name: 'associatedPhotos',
       type: 'join',
